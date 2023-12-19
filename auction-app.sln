@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuctionService", "AuctionSe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BidService", "BidService\BidService.csproj", "{621888E1-07D1-460F-B094-537E2A702609}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchService", "SearchService\SearchService.csproj", "{FC3430C5-B8BC-4CA2-B642-5FCDEEC44B8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{621888E1-07D1-460F-B094-537E2A702609}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{621888E1-07D1-460F-B094-537E2A702609}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{621888E1-07D1-460F-B094-537E2A702609}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC3430C5-B8BC-4CA2-B642-5FCDEEC44B8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC3430C5-B8BC-4CA2-B642-5FCDEEC44B8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC3430C5-B8BC-4CA2-B642-5FCDEEC44B8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC3430C5-B8BC-4CA2-B642-5FCDEEC44B8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
