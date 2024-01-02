@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Entities;
-using SearchService.Entities.Models;
 using SearchService.Helpers;
+using SearchService.Models;
 using ZstdSharp.Unsafe;
 
 namespace SearchService.Controllers;
@@ -45,6 +45,9 @@ public class SearchController : ControllerBase
         if (!string.IsNullOrEmpty(requestParams.Seller)) {
             query.Match(x => x.Seller == requestParams.Seller);
         }
+
+        query.PageNumber(requestParams.PageNumber);
+        query.PageSize(requestParams.PageSize);
         
         (IReadOnlyList<Item> results, long pageCount, int totalCount) = await query.ExecuteAsync(); 
 
