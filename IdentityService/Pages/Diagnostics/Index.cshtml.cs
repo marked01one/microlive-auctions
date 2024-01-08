@@ -13,12 +13,13 @@ public class Index : PageModel
         
     public async Task<IActionResult> OnGet()
     {
-        var localAddresses = new string[] { "127.0.0.1", "::1", HttpContext.Connection.LocalIpAddress.ToString() };
-        if (!localAddresses.Contains(HttpContext.Connection.RemoteIpAddress.ToString()))
-        {
-            return NotFound();
-        }
+        string localIp = HttpContext.Connection.LocalIpAddress.ToString();
+        string remoteIp = HttpContext.Connection.RemoteIpAddress.ToString();
+        string dockerLocalIp = localIp.Remove(localIp.Length - 1, 1) + "1";
 
+        string[] localAddresses = { dockerLocalIp, "127.0.0.1", "::1", localIp };
+        
+        if (!localAddresses.Contains(remoteIp)) return NotFound();
         View = new ViewModel(await HttpContext.AuthenticateAsync());
             
         return Page();
