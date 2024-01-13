@@ -1,6 +1,7 @@
 ﻿
 using AuctionService.Database;
 using AuctionService.Entities.Models;
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 
 namespace AuctionService.Database;
@@ -94,7 +95,7 @@ public class DbInitializer
                     Color = "Silver",
                     Mileage = 15001,
                     Year = 2020,
-                    ImageUrl = "https://cdn.pixabay.com/photo/2016/04/17/22/10/mercedes-benz-1335674_960_720.png"
+                    ImageUrl = "https://cdn.pixabay.com/photo/2012/05/29/00/43/car-49278_960_720.jpg"
                 }
             },
             // 5 BMW X1

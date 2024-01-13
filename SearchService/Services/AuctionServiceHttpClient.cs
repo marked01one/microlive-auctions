@@ -20,12 +20,18 @@ public class AuctionServiceHttpClient
 
     public async Task<List<Item>> GetItemsForSearchDbAsync()
     {
-        var lastUpdated = await DB.Find<Item, string>()
+        string lastUpdated = await DB.Find<Item, string>()
             .Sort(x => x.Descending(auction => auction.UpdatedAt))
             .Project(x => x.UpdatedAt.ToString())
             .ExecuteFirstAsync();
 
+        if (!string.IsNullOrEmpty(lastUpdated)) 
+        {
+            Console.WriteLine("`lastUpdated` string is empty!");
+            lastUpdated = DateTime.UnixEpoch.ToString();
+        };
+
         return await _httpClient.GetFromJsonAsync<List<Item>>(
-            _config["AuctionServiceUrl"] + "api/auctions?date=" + lastUpdated);
+            _config["AuctionServiceUrl"] + "/api/auctions?date=" + lastUpdated);
     }
 }

@@ -16,8 +16,6 @@ public class SearchController : ControllerBase
     {
         PagedSearch<Item, Item> query = DB.PagedSearch<Item, Item>();
 
-        query.Sort(x => x.Ascending(auction => auction.Make));
-
         if (!string.IsNullOrEmpty(requestParams.SearchTerm)) {
             query.Match(Search.Full, requestParams.SearchTerm).SortByTextScore();
         }
@@ -49,7 +47,7 @@ public class SearchController : ControllerBase
         query.PageNumber(requestParams.PageNumber);
         query.PageSize(requestParams.PageSize);
         
-        (IReadOnlyList<Item> results, long pageCount, int totalCount) = await query.ExecuteAsync(); 
+        (IReadOnlyList<Item> results, long totalCount, int pageCount) = await query.ExecuteAsync(); 
 
         return Ok(new 
         {
