@@ -1,7 +1,5 @@
-using AuctionService;
 using AuctionService.Consumers;
 using AuctionService.Database;
-using Contracts;
 using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -69,6 +67,5 @@ catch (Exception e)
     Console.WriteLine(e);
     throw;
 }
-
 
 app.Run();
