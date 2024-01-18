@@ -1,3 +1,5 @@
+'use client'
+
 import EmptyFilter from '@/app/components/EmptyFilter'
 import React from 'react'
 

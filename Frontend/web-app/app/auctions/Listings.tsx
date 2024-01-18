@@ -9,6 +9,7 @@ import { useParamsStore } from '@/hooks/useParamsStore';
 import { Auction, PagedResult } from '@/types';
 import qs from 'query-string';
 import EmptyFilter from '../components/EmptyFilter';
+import { shallow } from 'zustand/shallow';
 
 
 
@@ -20,7 +21,9 @@ export default function Listings() {
     pageSize: state.pageSize,
     searchTerm: state.searchTerm,
     orderBy: state.orderBy,
-    filterBy: state.filterBy
+    filterBy: state.filterBy,
+    seller: state.seller,
+    winner: state.winner
   }));
   const setParams = useParamsStore(state => state.setParams);
   const url = qs.stringifyUrl({url: '', query: params})
